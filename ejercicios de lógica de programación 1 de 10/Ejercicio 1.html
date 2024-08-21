@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- PLANTEAMIENTO Programa una función que cuente el número 
+ de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") 
+ devolverá 10. -->
+<html>
+    <head>
+        <title>Ejercicio 1</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 1</h1>
+        <p>Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.</p>
+        <script>
+            //variables
+            let cadena = {nombre: `Radel`, edad: 25}
+            
+
+            //funciones
+            function contarCadena () {
+                console.log(cadena.length)
+            }
+            //ejecución del cósido
+            if (typeof cadena !== `string`) {
+               if (Array.isArray(cadena) === false) {
+                console.log(`Este dato no es una cadena, este dato es un/una ${typeof cadena}`)
+                } else {
+                    console.log(`Este dato no es una cadena, este dato es un/una array`)
+                }
+
+            } else {
+                contarCadena(cadena)
+            }
+
+           
+        </script>
+    </body>
+</html>
