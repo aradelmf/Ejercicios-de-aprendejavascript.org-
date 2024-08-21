@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 2</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 2</h1>
+        <h2>Planteamiento</h2>
+        <p> Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".</p>
+        <script>
+             //variables
+             let cadena = `Una cadena no muy larga`
+
+            //funciones
+            function mostrarCadena (dato, long) {
+                this.dato = dato
+                this.long = long
+                console.log(dato.slice(0, long))
+                
+            }
+            //ejecución del cósido
+            if (typeof cadena !== `string`) {
+               if (Array.isArray(cadena) === false) {
+                console.log(`Este dato no es una cadena, este dato es un/una ${typeof cadena}`)
+                } else {
+                    console.log(`Este dato no es una cadena, este dato es un/una array`)
+                }
+
+            } else {
+                mostrarCadena(cadena, 8)
+            }
+        </script>
+    </body>
+</html>
