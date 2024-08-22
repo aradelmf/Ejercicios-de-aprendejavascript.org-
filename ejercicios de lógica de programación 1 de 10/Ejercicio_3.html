@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Planteamiento: Programa una función que dada una String te 
+ devuelva un Array de textos separados por cierto caracter, 
+ pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal']. -->
+<html lang="es">
+    <head>
+        <title>Ejercicio 3</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 3</h1>
+        <h2>Enunciado</h2>
+        <p> Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].</p>
+        <script>
+            //Variables
+            let cadena = `Una cadena de prueba`
+            let arreglo = []
+
+            //funciones
+            const cadenaToArreglo = function (dato, caracter = ` `) {
+                arreglo = dato.split(caracter)
+                console.log(arreglo)                
+            }
+
+            //Ejecución del código
+            if (typeof cadena !== `string`) {
+                if (Array.isArray(cadena) === true) {
+                    console.log(`El dato no es una cadena, es un arreglo`)
+                } else {
+                    console.log(`El dato no es una cadena, es un/una ${typeof cadena}`)
+                }
+            } else {
+                cadenaToArreglo(cadena)
+            }
+
+        </script>
+    </body>
+</html>

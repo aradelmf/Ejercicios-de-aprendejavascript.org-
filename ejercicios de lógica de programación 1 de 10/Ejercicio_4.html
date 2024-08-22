@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Planteamiento Programa una función que repita un texto X veces, 
+ pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo 
+ Hola Mundo. -->
+<html lang="es">
+    <head>
+        <title>Ejercico 4</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 4</h1>
+        <h2>Planteamiento</h2>
+        <p>Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.</p>
+    <script>
+        //Variables
+        let cadena = `Hola, soy cadena`
+
+        //funciones
+        const repetirTexto = function (dato, numero) {
+            let cadena2 = dato + ` `
+            for (let i = 1; i < numero; i++) {
+                cadena2 += dato + ` `
+            }
+            console.log(cadena2)
+        }
+
+        //Ejecución del código
+        if (typeof cadena !== `string`) {
+            if (Array.isArray === true) {
+                console.log(`El dato no es una cadena (string), el dato es: array`)
+            } else {
+                console.log(`El dato no es una cadena (string), el dato es: ${typeof cadena}`)
+            }
+        } else {
+            repetirTexto(cadena, 5)
+        }
+    </script>
+    </body>
+
+</html>
