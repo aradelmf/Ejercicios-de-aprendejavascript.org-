@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<!-- Programa una función que invierta las palabras de una cadena de texto, 
+ pe. miFuncion("Hola Mundo") devolverá "odnuM aloH". -->
+<html lang="es">
+    <head>
+        <title>Ejercición 5</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 5</h1>
+        <h2>Enunciado</h2>
+        <p>Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".</p>
+        <script>
+            //variables
+            let miStringVacia = ''
+            noString = [`hola`, 'mundo']
+            miString = 'Esto es una string de prueba'
+
+            
+            
+            //Funciones
+            const invertirTexto =  (cadena) => {
+             
+                if (typeof cadena !== 'string') { return console.error('El dato introducido no es una cadena')}
+                if (!cadena) {return console.warn('La cadena no puede estar vacía')}
+                let n = cadena.length - 1
+                //función
+                let textoInvertido = ''
+                for (i = n; i >= 0; i--) {
+                    textoInvertido += cadena[i]
+                    
+                }
+                console.log(`Tu cadena invertida es: "${textoInvertido}"`)
+               
+                                     
+            }
+
+            // Ejecución del código
+            invertirTexto(miString)
+            invertirTexto(noString)
+            invertirTexto(miStringVacia)
+            invertirTexto(['hola', 'mundo'])
+            invertirTexto('Hola, gente')
+            invertirTexto('')
+          
+            
+            
+
+
+        </script>
+    </body>
+</html>
