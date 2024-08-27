@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Programa una función que valide si una palabra o frase dada, 
+ es un palíndromo (que se lee igual en un sentido que en otro), 
+ pe. mifuncion("Salas") devolverá true. -->
+<html lang="es">
+    <head>
+        <title>Ejercicio 7</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 7</h1>
+        <h2>Planteamiento</h2>
+        <p>Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.</p>
+        <script>
+            //Variables
+            let texto1 = 'Anita lava la tina'
+            texto2 = 'Ana'
+            texto3 = 'dábale arroz a la zorra el abad'
+            texto4 = 'A ti no, bonita'
+            texto5 = 'No soy un palíndromo'
+            noTexto = ['no', 'es', 'una', 'cadena']
+            textoVacio = ''
+            
+            //Funciones
+            const esPalindromo = (cadena) => {
+                //Verificaciones
+                if (typeof cadena !== 'string') {return console.error(`El dato introducido no es una cadena`)}
+                if (!cadena) {return console.warn('La cadena no puede estar vacía')}
+
+                //scope
+                cadena = cadena.toLowerCase()
+                let cad1 = cadena.normalize('NFD').replace(/[\u0300-\u036f]/g,"")
+                cad2 = cad1.replace(/[\u0020-\u0040]/g, '')
+                cad3 = ''
+                
+                //Función
+                for (i = cad2.length - 1; i >= 0; i-- ) {
+                    cad3 += cad2[i]
+                }
+                if (cad3 === cad2) {
+                    return console.log(`La cadena "${cadena}" sí es un palíndromo`)
+                } else {
+                    return console.log(`la cadena "${cadena}" no es un palíndromo`)
+                }
+                
+            }
+            
+            esPalindromo(noTexto)
+            esPalindromo(textoVacio)
+
+            esPalindromo(texto1)
+            esPalindromo(texto2)
+            esPalindromo(texto3)
+            esPalindromo(texto4)
+            esPalindromo(texto5)
+            
+
+
+            //Ejecución del código
+        </script>
+    </body>
+</html>

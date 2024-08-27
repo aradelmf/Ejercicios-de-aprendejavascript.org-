@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Programa una función para contar el número de veces que se repite una 
+ palabra en un texto largo, 
+ pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2. -->
+<html lang="es">
+    <head>
+        <title>Ejercicio 6</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+    </head>
+    <body>
+        <h1>Ejercicio 6</h1>
+        <h2>Planteamiento</h2>
+        <p>Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.</p>
+        <script>
+            //Variables
+            let unTexto = 'Este es un texto de prueba que servirá para probar una función que evalua cadenas de texto'
+            otroTexto = 'Cadena de números escritos uno, Uno, uno, uno, dos, dos, tres, tres, tres, cuatro, cuatro, cuatro, cuatro, cuatro, cinco'
+            noTexto = ['un', 'array']
+            textoVacio = ''
+
+            //Funciones
+            const contarPalabras = (texto, busca) => {
+                if (typeof texto !== 'string') {return console.error('El texto no es una cadena')}
+                if (typeof busca !== 'string') {return console.error('El término a buscar no es una cadena')}
+                if (!texto) {return console.warn('La cadena de texto no puede estar vacía')}
+                if (!busca) {return console.warn('Se debe introducir un texto a buscar')}
+                texto = texto.toLocaleLowerCase()
+               let contador = 0
+               let posicion = texto.indexOf(busca)
+
+               for (posicion; posicion !== -1; contador++) {
+                posicion = texto.indexOf(busca, posicion + 1) 
+
+               }
+               console.log(`Se han encontrado "${contador}" coincidencias`)
+                            
+            }
+            contarPalabras(unTexto, 'que')
+            contarPalabras(otroTexto, 'uno')
+            contarPalabras(otroTexto, 'dos')
+            contarPalabras(otroTexto, 'tres')
+            contarPalabras(otroTexto, 'cuatro')
+            contarPalabras(otroTexto, 'cinco')
+            
+            contarPalabras(noTexto, 'uno')
+            contarPalabras(textoVacio, 'uno')
+
+            contarPalabras(otroTexto, ['uno'])
+            contarPalabras(otroTexto, '')
+
+
+          
+            
+        </script>
+    </body>
+</html>
