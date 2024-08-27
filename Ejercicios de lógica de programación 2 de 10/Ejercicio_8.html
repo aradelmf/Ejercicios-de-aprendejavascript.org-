@@ -12,5 +12,54 @@
         <h1>Ejercicio 8</h1>
         <h2>Planteamiento</h2>
         <p>Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.</p>
+        <script>
+            //Variables
+            let texto1 = 'qwerty1'
+            texto2 = 'qwerty2'
+            texto3 = 'qwertya'
+            let noTexto = ['un', 'arreglo']
+            let textoVacio = ''
+
+            //Funciones
+            const eliminarCaracteres = (control, ...cadena) => {
+                
+                
+                if (typeof control !== 'string') {return console.error('El dato de control intriducido no es una cadena')}
+                if (!control) {return console.warn('Debe intriducir al menos una cadena en el dato de control')}
+                
+                    let probar = cadena.join('')
+                    if (!probar) {return console.error('Las cadenas no pueden estar vacías')}
+                    for (i = 0; i < cadena.length; i++) {
+                        if (typeof cadena[i] !== 'string' ) {return console.warn('Uno de los datos introducidos para modificar no es una cadena')}
+                    }
+               
+                let resultado = []
+                cadena.forEach(dato => {
+                    dato = dato.replace(control, '')
+                    resultado.push(dato)
+
+                });
+                let cadenaResultado = ''
+                for (i = 0; i < resultado.length; i++){
+                    if (i === resultado.length - 1) {
+                        cadenaResultado += 'y ' + resultado[i] + '.'
+                    } else {
+                    cadenaResultado += resultado[i] + ', '}
+                }
+                console.log(cadenaResultado)
+
+            }
+
+            //Ejecución
+
+            eliminarCaracteres('qwerty', texto1, texto2, texto3)
+            eliminarCaracteres('', texto1)
+            eliminarCaracteres(noTexto, texto1)
+            eliminarCaracteres('qwerty')
+            eliminarCaracteres('qwerty', '', '', '')
+            eliminarCaracteres('qwerty', '', '', noTexto)
+
+            console.log
+        </script>
     </body>
 </html>
