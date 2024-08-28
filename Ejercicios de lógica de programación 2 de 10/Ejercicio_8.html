@@ -35,13 +35,17 @@
                
                 let resultado = []
                 cadena.forEach(dato => {
-                    dato = dato.replace(control, '')
+                    dato = dato.replaceAll(control, '')
                     resultado.push(dato)
 
                 });
                 let cadenaResultado = ''
                 for (i = 0; i < resultado.length; i++){
-                    if (i === resultado.length - 1) {
+                    if (resultado.length === 1) {
+                        cadenaResultado = resultado[i] + '.'
+                    } else if (i === resultado.length - 2) {
+                        cadenaResultado += resultado[i] + ' '                        
+                    }else if (i === resultado.length - 1) {
                         cadenaResultado += 'y ' + resultado[i] + '.'
                     } else {
                     cadenaResultado += resultado[i] + ', '}
@@ -53,13 +57,35 @@
             //Ejecución
 
             eliminarCaracteres('qwerty', texto1, texto2, texto3)
+            eliminarCaracteres('qwerty', texto1, texto2)
+            eliminarCaracteres('xyz', 'xyz1, xyz2, xyz3, xyz4 y xyz5')
+
             eliminarCaracteres('', texto1)
             eliminarCaracteres(noTexto, texto1)
             eliminarCaracteres('qwerty')
             eliminarCaracteres('qwerty', '', '', '')
-            eliminarCaracteres('qwerty', '', '', noTexto)
+            eliminarCaracteres('qwerty', '', '', noTexto) 
 
-            console.log
+            
+
+            //MÉTODO DE JONMIRCHA
+
+            /* const eliminarCaracteres = (texto = '', patron = '') => {
+                (!texto)
+                ? console.warn('No ingresaste un texto')
+                : (!patron)
+                    ? console.warn('No ingresaste un patrón de caracteres')
+                    : console.info(texto.replace(new RegExp(patron, 'ig'),''))
+            }
+
+            eliminarCaracteres()
+            eliminarCaracteres('xyz1, xyz2, xyz3, xyz4 y xyz5')
+            eliminarCaracteres('xyz1, xyz2, xyz3, xyz4 y xyz5', 'xyz')
+            eliminarCaracteres('Lorem ipsum dolor sit amet consectetur adipiscing elit himenaeos vestibulum, cum pharetra nullam dictum aliquet odio vitae laoreet dis, hac neque integer posuere feugiat ultrices ac viverra. Pellentesque et per at tincidunt dictumst vitae nulla ultricies justo, suspendisse dictum neque ultrices senectus primis a facilisis eleifend, vestibulum mollis eget maecenas egestas sapien quis tristique. Tempus himenaeos habitasse morbi quis diam et torquent, curabitur id conubia suscipit tortor a, hendrerit senectus duis ultricies eros potenti.', 'o') */
+
+
+
+            
         </script>
     </body>
 </html>

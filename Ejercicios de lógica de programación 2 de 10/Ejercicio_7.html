@@ -29,8 +29,8 @@
                 if (!cadena) {return console.warn('La cadena no puede estar vacía')}
 
                 //scope
-                cadena = cadena.toLowerCase()
-                let cad1 = cadena.normalize('NFD').replace(/[\u0300-\u036f]/g,"")
+                cadenaX = cadena.toLowerCase()
+                let cad1 = cadenaX.normalize('NFD').replace(/[\u0300-\u036f]/g,"")
                 cad2 = cad1.replace(/[\u0020-\u0040]/g, '')
                 cad3 = ''
                 
@@ -45,7 +45,9 @@
                 }
                 
             }
-            
+           
+            //Ejecución del código
+
             esPalindromo(noTexto)
             esPalindromo(textoVacio)
 
@@ -54,10 +56,28 @@
             esPalindromo(texto3)
             esPalindromo(texto4)
             esPalindromo(texto5)
+
+            //MÉTODO DE JONMIRCHA
+
+            /* const palindromo = (palabra = '') => {
+                if(!palabra) {return console.warn('No ingresaste una palabra o frase')}
+
+                palabra = palabra.toLowerCase()
+                let alReves = palabra.split('').reverse().join('')
+
+                return (palabra === alReves)
+                ? console.info(`Sí es palíndromo. Palabra original "${palabra}". Palabra al revés "${alReves}"`)
+                : console.info(`No es palíndromo. Palabra orogonal "${palabra}". Palabra al revés "${alReves}"`)
+
+            }
+
+            palindromo()
+            palindromo('Hola, mundo')
+            palindromo('Salas') */
+
             
 
 
-            //Ejecución del código
         </script>
     </body>
 </html>

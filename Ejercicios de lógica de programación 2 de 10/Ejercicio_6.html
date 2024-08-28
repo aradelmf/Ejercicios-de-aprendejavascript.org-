@@ -49,8 +49,29 @@
             contarPalabras(otroTexto, ['uno'])
             contarPalabras(otroTexto, '')
 
+            //SOLUCIÓN  DE JONMIRCHA
+            /* const textoEnCadena = (cadena = '', texto = '') => {
+                if(!cadena) {return console.warn('No ingresaste una cadena de texto a evaluar')}
+                if(!texto) {return console.warn('No ingresaste la/s palabra/s a buscar en el texto')}
 
+                let i = 0
+                contador = 0
+                
+                while (i !== -1){
+                    i = cadena.indexOf(texto, i)
+                    if (i !== -1) {
+                        i++
+                        contador++
+                    }
+                }
+                return console.info(`La palabra "${texto}" se repite ${contador} veces`)
+            }
           
+
+            textoEnCadena()
+            textoEnCadena('', 'mundo')
+            textoEnCadena('Hola, mundo. Adios, mundo', '')
+            textoEnCadena('Hola, mundo. Adios, mundo. Yolo, mundo. Holi, mundo. Chao, mundo.', 'mundo') */
             
         </script>
     </body>
