@@ -16,7 +16,7 @@
     </p>
     <script>
 
-        //FUNCIONES f
+        //FUNCIONES (f)
 
         const esPrimo = (numero = '') => {
             
@@ -49,6 +49,40 @@
         esPrimo(7)
         esPrimo(8)
         esPrimo(9)
+
+        //MÉTODO DE JONMIRCHA
+        /* const numeroPrimo = (numero = undefined) => {
+            if (numero === 0) {return console.warn('El número no puede ser 0')}
+            if (numero === 1) {return console.warn('El número uno (1) no se considera un número primo')}
+            if (!numero) {return console.warn('Debe introducir un número')}
+            if (numero < 0) {return console.warn(`El número no puede ser negativo. Por concepto, los números primos son números naturales`)}
+            if (typeof numero !== 'number') {return console.error('El dato intriducido no es un número')}
+
+            let divisible = false
+
+            for (i = 2; i < numero; i++) {
+                if (numero % i === 0) {
+                    divisible = true
+                    break
+                }
+            }
+            return (divisible)
+            ?console.log(`El número "${numero}" NO es primo`)
+            :console.log(`El número "${numero}" SÍ es primo`)
+
+        }
+
+        numeroPrimo()
+        numeroPrimo('7')
+        numeroPrimo(true)
+        numeroPrimo(0)
+        numeroPrimo(1)
+        numeroPrimo(-20)
+        numeroPrimo(13)
+        numeroPrimo(2)
+        numeroPrimo(200) */
+
+
 
 
     </script>

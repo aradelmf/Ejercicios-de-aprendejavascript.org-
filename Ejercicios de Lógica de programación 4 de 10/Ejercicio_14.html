@@ -40,6 +40,8 @@
       convTemperatura('20', 'c')
       convTemperatura(10, )
       convTemperatura(20, ['c'])
+      convTemperatura(20, 'c f')
+      convTemperatura(20, 'cf')
       convTemperatura(20, 'a')
       
 
@@ -50,6 +52,35 @@
       convTemperatura(10, 'f')
       convTemperatura(-20, 'c')
       convTemperatura(-20, 'f')
+
+      //MÉTODO DE JONMIRCHA
+     /*  const convertirGrados = (grados = undefined, unidad = undefined) => {
+        if (grados === undefined) return console.warn('No ingrestaste grados a convertir')
+        if (typeof grados !== 'number') return console.error(`El valor "${grados}" ingresado NO es un número`)
+
+        if (unidad === undefined) return console.warn('No ingrestaste el tipo de grado a convertir')
+        if(typeof unidad !== 'string') {return console.error('Error en el dato de la unidad. Este debe ser expcificado como un texto.')}
+        if (unidad.length !== 1 || !/C|F/.test(unidad)) return console.warn(`Valor de unidad no reconocido`)
+        
+        if (unidad === 'C') {
+          return console.info(`${grados}ºC = ${Math.round((grados * 9/5) + 32)}ºF`)
+        } else if (unidad === 'F'){return console.info(`${grados}ºF = ${Math.round((grados -32 ) * 5/9)}ºC`)}
+        
+      }
+
+      convertirGrados()
+      convertirGrados("2")
+      convertirGrados(2)
+      convertirGrados(2, true)
+      convertirGrados(2, 'hola')
+      convertirGrados(2, 'e')
+      convertirGrados(0, 'C')
+      convertirGrados(100, 'C')
+      convertirGrados(0, 'F')
+      convertirGrados(32, 'F')
+      convertirGrados(100, 'F') */
+      
+
 
 
 
