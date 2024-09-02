@@ -16,6 +16,41 @@
     </p>
     <script>
 
+        //FUNCIONES f
+
+        const esPrimo = (numero = '') => {
+            
+            if (numero === 0) {return console.warn('El número no puede ser 0')}
+            if (numero === 1) {return console.warn('El número uno (1) no se considera un número primo')}
+            if (!numero) {return console.warn('Debe introducir un número')}
+            if (numero < 0) {return console.warn(`El número no puede ser negativo. Por concepto, los números primos son números naturales`)}
+            if (typeof numero !== 'number') {return console.error('El dato intriducido no es un número')}
+        
+
+            for (i = numero - 1; i > 1; i--) {
+                if(numero % i === 0) {return console.info(`El número "${numero}" NO es primo`)}
+            }
+            return console.info(`El número "${numero}" SÍ es primo`)
+        } 
+
+        //EJECUCIÓN DEL CÓDIGO 
+
+        esPrimo(0)
+        esPrimo()
+        esPrimo(1)
+        esPrimo('1')
+        esPrimo(-3)
+
+        esPrimo(2)
+        esPrimo(3)
+        esPrimo(4)
+        esPrimo(5)
+        esPrimo(6)
+        esPrimo(7)
+        esPrimo(8)
+        esPrimo(9)
+
+
     </script>
 </body>
 </html>

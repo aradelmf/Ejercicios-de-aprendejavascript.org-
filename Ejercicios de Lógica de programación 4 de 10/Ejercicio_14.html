@@ -12,6 +12,46 @@
     <h2>Planteamiento</h2>
     <p> Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.</p>
     <script>
+      //FUNCIONES
+      const convTemperatura = (valor = null, unidad) => {
+        //verificaciones
+        if(valor === null){return console.warn(`Debe intriducir un valor de temperatura`)}
+        if(typeof valor !== 'number') {return console.error(`El valor introducido para la temperatura no es un valor numérico`)}
+
+        if(!unidad) {return console.warn('Debe especificar con C para convertir de Celsius a Farenheit o F para convertir de Farenheit a Celsius')}
+        if(typeof unidad !== 'string') {return console.error('Error en el dato de la unidad. Este debe ser expcificado como un texto.')}
+        unidad = unidad.toLowerCase()
+        if(unidad !== 'c' && unidad !== 'f') {return console.error(`"${unidad}" no es una unidad de temperarua válida. Debe especificar F para convertir de Farenheit a Celsius o C para convertir de Celsius a Farenheit`)}
+
+        //código función
+        let conversion = undefined
+        if (unidad === 'c') {
+          conversion = (valor * 9/5) + 32
+          return console.info(`${valor}ºC son equivalentes a ${conversion}ºF`)
+        } else {
+          conversion = (valor - 32) * 5/9
+          return console.info(`${valor}ºF son equivalentes a ${conversion}ºC`)
+        }
+      }
+
+      //EJECUCIÓN DEL CÓDIGO
+      console.log('___Comprobación de las verificaciones___')
+      convTemperatura(undefined, 'c')
+      convTemperatura('20', 'c')
+      convTemperatura(10, )
+      convTemperatura(20, ['c'])
+      convTemperatura(20, 'a')
+      
+
+      console.log('_____Prueba de la función_____')
+      convTemperatura(0, 'C')
+      convTemperatura(0, 'F')
+      convTemperatura(10, 'c')
+      convTemperatura(10, 'f')
+      convTemperatura(-20, 'c')
+      convTemperatura(-20, 'f')
+
+
 
     </script>
 </body>

@@ -13,6 +13,32 @@
     <p> Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.</p>
     <script>
 
+      //FUNCIONES
+      const esParImpar = (numero) => {
+        //verificaciones
+        if(numero === 0) {return console.warn('El número no puede ser 0')}
+        if(!numero) {return console.warn('El dato no puede estar vacío')}
+        if(typeof numero !== 'number') {return console.error('El dato introducido no es un número')}
+        if(!Number.isInteger(numero)) {return console.warn('Debe introducir un número entero')}
+        
+        //código de función
+        if(Number.isInteger(numero / 2)) {return console.info(`El número "${numero}" es par`)
+          } else {return console.info(`El número "${numero}" es impar`)}
+      }
+
+      //EJECUCIÓN DEL CÓDIGO
+      console.log('___Comprobar verificaciones___')
+      esParImpar(0)
+      esParImpar()
+      esParImpar(1.5)
+      esParImpar(2.4)
+      esParImpar('10')
+      console.log('___Prueba de función___')
+      esParImpar(1)
+      esParImpar(2)
+      esParImpar(10)
+      esParImpar(11)
+
     </script>
 </body>
 </html>
