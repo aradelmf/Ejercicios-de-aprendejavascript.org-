@@ -14,6 +14,75 @@
     <h2>Planteamiento</h2>
     <p>Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
     </p>
-    <Script></Script>
+    <Script>
+        //FUNCIONES
+        const anosTranscurridos = (ano, mes, dia) => {
+            //validación de datos
+            if (typeof mes === 'string') mes = mes.toLowerCase()
+            if (mes === 'enero' || mes === 'ene' || mes == 1) mes = 0
+            if (mes === 'febrero' || mes === 'feb' || mes == 2) mes = 1
+            if (mes === 'marzo' || mes === 'mar' || mes == 3) mes = 2
+            if (mes === 'abril' || mes === 'abr' || mes == 4) mes = 3
+            if (mes === 'mayo' || mes === 'may' || mes == 5) mes = 4
+            if (mes === 'junio' || mes === 'jun' || mes == 6) mes = 5
+            if (mes === 'julio' || mes === 'jul' || mes == 7) mes = 6
+            if (mes === 'agosto' || mes === 'ago' || mes == 8) mes = 7
+            if (mes === 'septiembre' || mes === 'sep' || mes == 9) mes = 8
+            if (mes === 'octubre' || mes === 'oct' || mes == 10) mes = 9
+            if (mes === 'noviembre' || mes === 'nov' || mes == 11) mes = 10
+            if (mes === 'diciembre' || mes === 'dic' || mes == 12) mes = 11 
+
+            switch (mes) {
+                case 0 || 2 || 4 || 6 || 7 || 9 || 11:
+                if(dia < 1 || dia > 31) return console.error('Día del mes no válido. Por favor, revise la fecha e introdúzcala correctamente.')
+                break;
+                case 3 || 5 || 8 || 10:
+                if(dia < 1 || dia > 30) return console.error('Día del mes no válido. Por favor, revise la fecha e introdúzcala correctamente.')
+                break;
+                case 1:
+                if(dia < 1 || dia > 28) return console.error('Día del mes no válido. Por favor, revise la fecha e introdúzcala correctamente.')
+                break;
+
+            }
+            if(ano < 1900) return console.warn('Por favor, indique un año posterior al 1900.')
+            if(!ano || !mes || !dia) return console.warn('Debe especificar un dato válido para cada uno de los parámetros de fecha.')
+            if (typeof ano !== 'number') return console.error('El año especificado no es un dato válido.')
+            if (typeof dia !== 'number') return console.error('El día especificado no es un dato válido.')
+            if (typeof mes !== 'number' && typeof mes !== 'string') return console.error('El mes suministrado es inválido')
+
+            let fechaAntes = new Date(ano, mes, dia)
+            let fechaAhora = new Date()
+
+            let periodo = fechaAhora.getFullYear()- fechaAntes.getFullYear()
+            if (fechaAhora.getMonth() < fechaAntes.getMonth()) periodo -= 1
+            if (fechaAhora.getMonth() === fechaAntes.getMonth() && fechaAhora.getDate() < fechaAntes.getDate()) periodo -= 1
+
+            console.log(`Desde ${fechaAntes.toLocaleDateString()} hasta ${fechaAhora.toLocaleDateString()} han transcurrido ${periodo} años.`)
+        
+        }
+
+        //EJECUCIÓN DEL CÓDIGO
+
+        anosTranscurridos(2000, 4, 15)
+        anosTranscurridos(2000, 10, 20)
+        anosTranscurridos(2000, 9, 2)
+        console.log('____________________________________________')
+        anosTranscurridos(2000, 'abr', 14)
+        console.log('____________________________________________')
+        anosTranscurridos(2000, 2, 30)
+        anosTranscurridos(2000, 4, 28)
+        anosTranscurridos(2000, 4, 31)
+        console.log('____________________________________________')
+        anosTranscurridos(1823, 5, 25)
+        anosTranscurridos()
+        anosTranscurridos(2000)
+        anosTranscurridos(2000, 8, '')
+        anosTranscurridos('2000', 5, 5)
+        anosTranscurridos(2000, '5', 5)
+        anosTranscurridos(2000, 5, '5')
+        anosTranscurridos(2000, [5, 5], 5)
+
+    
+    </Script>
 </body>
 </html>
