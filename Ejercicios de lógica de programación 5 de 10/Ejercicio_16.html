@@ -12,6 +12,40 @@
     <h1>Ejercicio 16</h1>    
     <h2>Planteamiento</h2>
     <p>Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.</p>
-    <Script></Script>
+    <Script>
+        //FUNCIONES
+        const miDescuento = (precio = undefined, descuento = 0) => {
+            //verificaciones 
+            if(precio === undefined || precio === 0 || Math.sign(precio) === -1) return console.warn('Debe introducir un número válido para el precio.')
+            if(typeof precio !== 'number') return console.error('El valor introducido no es un número')
+
+            if(Math.sign(descuento) === -1) {
+                descuento = Math.abs(descuento)
+            }
+            if(descuento > 100) return console.warn('El valor del descuento no puede ser superior al 100%.')
+            if(typeof descuento !== 'number') return console.error('El valor de descuento introducido es inválido, por favor, introduzca un número.')
+
+            //(f)
+            let precioFinal = precio - precio * descuento / 100
+            console.info(`Su producto de $${precio} con un descuento del ${descuento}% queda en $${precioFinal}.`)
+
+        }
+
+        //EJECUCIÓN DEL CÓDIGO
+        console.log('____Comprobación de las verificaciones_____')
+        miDescuento()
+        miDescuento(0)
+        miDescuento(-50)
+        miDescuento('50')
+        miDescuento(50, -200)
+        miDescuento(50, 200)
+        miDescuento(50, `50`)
+
+        console.log('_________Prueba de la función__________')
+        miDescuento(50, 50)
+        miDescuento(200, -25)
+
+
+    </Script>
 </body>
 </html>

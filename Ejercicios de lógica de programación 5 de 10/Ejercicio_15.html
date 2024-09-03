@@ -12,6 +12,52 @@
     <h1>Ejercicio 15</h1>    
     <h2>Planteamiento</h2>
     <p>Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.</p>
-    <Script></Script>
+    <Script>
+        //FUNCIONES
+        const binarioDecimal = (numero = undefined, base = undefined) => {
+            //verificaciones
+            if (numero === undefined) return console.warn('Debe intriducir un número.')
+            if (typeof numero !== 'number') return console.error('El dato introducido no es un número.')
+            if (base === undefined) return console.warn('Debe especificiar si el número es base 2 o base 10.')
+            if (typeof base !== 'number') return console.error('El dato de la base debe ser un número. Por favor, especifique si el número es base 2 o base 10.')
+            if (base !== 2 && base !== 10) return console.error('Dato inválido. La base solo puede ser "2" o "10".')
+            
+                
+            
+
+            // (f)
+            let resultado = NaN
+            if (base === 2) {
+                resultado = '0b' + numero.toString()
+                resultado = Number(resultado)
+                if (isNaN(resultado)) {
+                    return console.error('Error de dato. El número introducido no es un binario.')
+                } else {
+                    return console.info(`Número base 2: "${numero}". Número convertido a base 10: "${resultado}".`)
+                }
+            } 
+            if (base === 10){
+                resultado = numero.toString(2)
+                return console.info(`Número base 10: "${numero}". Número convertido a base 2: "${resultado}".`)
+            }
+        }
+
+        //EJECUCIÓN DEL CÓDIGO
+        console.log('_____Prueba de verificaciones_____')
+        binarioDecimal()
+        binarioDecimal('2', 2)
+        binarioDecimal(4)
+        binarioDecimal(4, '2')
+        binarioDecimal(4, 16)
+        binarioDecimal(4, 2)
+
+        console.log('_______Prueba de función_______')
+        binarioDecimal(100, 2)                
+        binarioDecimal(8, 10)
+        binarioDecimal(1100, 2)
+        binarioDecimal(23, 10)
+
+        //MÉTODO DE JONMIRCHA
+    </Script>
 </body>
 </html>
