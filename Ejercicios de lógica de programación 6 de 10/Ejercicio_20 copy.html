@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Programa una función que valide que un texto sea un email 
+ válido, 
+ pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20</title>
+</head>
+<body>
+    <h1>Ejercicio 20</h1>
+    <h2>Planteamiento</h2>
+    <p>Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.</p>
+    <script>
+        //FUNCIONES
+        const validarCorreo = (email = undefined) => {
+            if(email === undefined) return console.warn('El campo de email no puede estar vacío')
+            if(typeof email !== 'string') return console.error('El dato de email introducido no es un tipo de dato válido')
+
+            emai = email.toLowerCase()
+            //let exRe = /^([a-zA-Z\d][a-zA-Z\d\.,-_])+(@)([a-zA-Z\d]+)\.([a-zA-Z]+)$/i
+            //let exRe = /^((([a-zA-Z\d])[a-zA-Z\d\.,-_]){6,24})@([a-zA-Z\d]{3,16})\.([a-zA-Z]{1,12})$/iu
+            let exRe = /^[a-zA-Z]{1,1}[a-zA-Z\d\.-_]{6,23}@[a-zA-Z\d]{2,16}\.[a-z]+$/ig
+                test = exRe.test(email)
+            if(test){
+            return console.info(`El email ${email} es válido`)
+            } else {
+                let warning = () =>{ 
+            console.error(`El correo ${email} es inválido. Por favor, verifique e intente de nuevo`) 
+            console.warn(`Recuerde que el correo debe cumplir con la sisguiente condiciones: 
+- Iniciar con un caracter alfanumérico
+- No debe tener más de 24 caracteres
+- Sólo puede tener los caracteres especiales: punto (.), guión (-) y guión bajo (_)
+- Debe tener un arroba seguido de una cadena alfanumérica no mayor a 16 caracteres
+- concluir con puto(.) y una cadena de texto del dominio`)}
+return warning()
+            }
+            
+
+
+        }
+        //EJECUCIÓN DEL CÓDIGO
+        console.log('_____verificaciones_____')
+        
+        validarCorreo()
+        validarCorreo(3456)
+        
+        console.log('_____pruebas_____')
+        
+        validarCorreo('antonioradel@gmail.com')
+        validarCorreo('antonio98@gmail.com')
+        
+        console.log('_____pruebas2_____')
+
+        //más de 24 caracteres antes del arroba - devuelve false
+        validarCorreo('qwertyuiopasdfghjklzxcvbn@gmail.com')
+        validarCorreo('asr@gmail.com')
+        //inicia con 0 y con caracteres especiales -devuelve false
+        validarCorreo('98pera@gmail.com')
+        validarCorreo('_pera@gmai.com')
+        //Falta un caracter obligatorio
+        validarCorreo('antonio98gmail.com')
+        validarCorreo('antonio98@gmailcom')
+        //Caracteres después del arroba
+        validarCorreo('antonio98@gmailmmkljbgtdrdv.com')
+        
+
+
+        
+        
+
+        
+        
+    </script>
+    
+</body>
+</html>
