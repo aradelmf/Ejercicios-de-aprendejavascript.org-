@@ -12,7 +12,29 @@
     <h1>Ejercicio 18</h1>
     <h2>Planteamiento</h2>
     <p> Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.</p>
-    <script></script>
+    <script>
+        //FUNCIONES
+
+        const contarVocalesConsonantes = (cadena) => {
+            if(typeof cadena !== 'string') return console.error('Error en el tipo de dato introducido.')
+
+            let cadenaX = cadena.normalize('NFD').replace(/[\W\d]/g, '')
+
+            if(!cadenaX) return console.warn('Introduzca una cádena de texto válida.')
+            
+
+            cadenaC = cadenaX.replace(/[aeiou]/gi, '')
+            cadenaV = cadenaX.replace(/[^aeiou]/gi, '') 
+
+            console.info(`La cadena de texto "${cadena}" tiene "${cadenaC.length}" consonantes y tiene "${cadenaV.length}" vocales.`)
+
+
+        }
+        contarVocalesConsonantes('Hola, ¿Cómo estás tú?')
+        contarVocalesConsonantes(99)
+        contarVocalesConsonantes('99')
+        contarVocalesConsonantes('Esta es una nueva cadena de texto.')
+    </script>
     
 </body>
 </html>
