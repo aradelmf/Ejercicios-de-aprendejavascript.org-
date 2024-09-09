@@ -33,7 +33,42 @@
         contarVocalesConsonantes('Hola, ¿Cómo estás tú?')
         contarVocalesConsonantes(99)
         contarVocalesConsonantes('99')
-        contarVocalesConsonantes('Esta es una nueva cadena de texto.')
+        contarVocalesConsonantes('Esta es una nueva cadena de texto.') 
+        contarVocalesConsonantes('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+
+        //MÉTODO DE JONMIRCHA
+
+        /* const contarLetras = (cadena = "") => {
+            if(typeof cadena !== 'string') return console.error(`El valor "${cadena}" ingresado, NO es una cadena de texto`)
+            if(!cadena) return console.warn('No ingresaste una cadena de texto')
+
+            let vocales = 0
+                consonantes = 0
+
+            for (let letra of cadena) {
+                if(/[AEIOUÁÉÍÓÚÜaeiouáéíóúü]/.test(letra)) {
+                    vocales++
+                }
+                if(/[BCDFGHJKLMNÑPQRSTVWXYZbcdfghjklmnñpqrstvwxyz]/.test(letra)){
+                   consonantes++
+                }
+                
+            }
+            return console.info({
+                cadena,
+                vocales,
+                consonantes
+            })
+           
+
+        }
+
+        contarLetras()
+        contarLetras(3)
+        contarLetras('Hola, mundo')
+        contarLetras('Ñoño')
+        contarLetras('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.') */
+
     </script>
     
 </body>

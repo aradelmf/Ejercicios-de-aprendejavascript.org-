@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Programa una función que valide que un texto sea un email 
+ válido, 
+ pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19 + 20</title>
+</head>
+<body>
+    <h1>Ejercicio 19 + 20</h1>
+    <h2>Planteamiento</h2>
+    <p>Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.</p>
+    <script>
+      const validarPatron = (cadena = '', patron = undefined) => {
+            if(!cadena) return console.warn('NO ingresaste una cadena de texto a evaluar')
+            if(typeof cadena !== "string") return console.error(`El valor "${cadena}" ingresado NO es una cadena de texto`)
+            if(patron === undefined) return console.warn('NO ingresaste un patrón a evaluar')
+            if(!(patron instanceof RegExp)) return console.error(`El valor "${patron}" ingresado NO es una expresión regular`)
+
+            //let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email)
+            let expReg = patron.test(cadena)
+
+            return (expReg)
+            ? console.info(`"${cadena}" cumple con el patrón ingresado`)
+            : console.warn(`"${cadena}" NO cumple con el patrón ingresado`)
+        }
+        
+        validarPatron('Jonathan Mircha')
+        validarPatron('Jonathan Mircha', /^[a-zÀ-ÿ\s]+$/gi)
+        validarPatron()
+        validarPatron({})
+        validarPatron('Hola mundo', 'hola')
+        validarPatron('hola', true)
+        validarPatron('Jonathan Mircha 19', /^[a-zÀ-ÿ\s]+$/gi)
+        validarPatron('jonmircha@gmail.com', new RegExp("^[a-z\\d][a-z\\d.\\-_]+@[a-z\\d][a-z\\d\\-_]+\\.[a-z]{2,15}$", 'i'))
+
+
+    </script>
+    
+</body>
+</html>

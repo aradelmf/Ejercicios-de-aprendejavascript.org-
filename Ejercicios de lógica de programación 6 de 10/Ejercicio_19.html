@@ -36,7 +36,7 @@
             }
            
         }
-
+         //EJECUCIÓN DEL CÓDIGO
 
         validarNombre('Alejandro', 'Ruíz') //Devuelve: El nombre "Alejandro Ruíz" es válido.
         validarNombre('Hanna09', 'Padilla') //Devuelve: El nombre "Hanna09 Padilla" es inválido.
@@ -47,9 +47,25 @@
         validarNombre(['pedro'])//Devuelve: El dato de nombre introducido es inválido. Por favor, asegúrese de escribir una cadena de texto.
         validarNombre('José', 98)//Devuelve: El dato de apellido introducido es inválido. Por favor, asegúrese de escribir una cadena de texto.
       
-        
+        //MÉTODO DE JONMIRCHA
+       /*  const validarNombre = (nombre = '') => {
+            if(!nombre) return console.warn('No ingresaste un nombre')
+            if(typeof nombre !== 'string') return console.error(`El valor "${nombre}" ingresado NO es una cadena de texto`)
 
-        //EJECUCIÓN DEL CÓDIGO
+            let exReg = /^[A-Za-zÁ-ÿ\s]+$/g.test(nombre)
+
+            return (exReg)
+            ? console.info(`"${nombre}" es un nombre válido`)
+            : console.warn(`"${nombre}" NO es un nombre válido`)
+         
+        }
+
+        validarNombre()
+        validarNombre(3)
+        validarNombre('Jonathan')
+        validarNombre('Jonathan Mircha')
+        validarNombre('Jonathan Mircha, 35') */
+       
     </script>
     
 </body>
