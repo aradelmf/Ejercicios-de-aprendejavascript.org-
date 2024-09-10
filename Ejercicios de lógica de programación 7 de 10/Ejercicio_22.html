@@ -13,12 +13,53 @@
     <h2>Planteamiento</h2>
     <p> Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].</p>
     <script>
-      const elevaDos = (numero = undefined) => {
-        if(numero = undefined) return console.warn('Debe introducir un valor numérico.')
-        if(typeof numero !== 'number' || Number.isNaN(numero)) return console.error(`El valor "${numero}" introducido no es un número.`)
+      const mayorMenor =(arreglo = undefined) => {
+        if(arreglo === undefined) return console.warn('Debe introducir un conjunto de valores numéricos.')
+        if(!Array.isArray(arreglo) || Number.isNaN(arreglo)) return console.error(`El valor "${arreglo}" introducido no es un conjunto de valores numéricos.`)
+        
+        for (i = 0; i < arreglo.length; i++){
+            if(typeof arreglo[i] !== 'number' || isNaN(arreglo[i]) === true) return console.error(`El valor "${arreglo[i]}" en la posición "${i+1}" del arreglo NO es un número válido.`)
+        }
+        //let min = Infinity
+        //    max = -Infinity
+        //for (i = 0; i < arreglo.length; i++){
+        //    if(arreglo[i] > max) max = arreglo[i]
+        //    if(arreglo[i] < min) min = arreglo[i]
+        //}
 
+        let max = Math.max.apply(null, arreglo)
+            min = Math.min.apply(null, arreglo)
+            maxMinArr = [max, min]
+
+        return console.info(`El valor mínimo del cojunto de números es: ${min}. El valor máximo del conjunto de caracteres es: ${max}.`, maxMinArr)
+          
         
       }
+
+      mayorMenor()
+      mayorMenor('99')
+      mayorMenor([9, 2, -23, -76, 87, 4, 90, 100, '0', 53, 45, 123, 277, 132, 133, -132, -133, -242, 211])
+      mayorMenor([9, 2, -23, -76, 87, 4, 90, 100, 0, 53, 45, 123, 277, 132, 133, -132, -133, -242, 211])
+
+      //MÉTODO DE JON MIRCHA
+      /* const arrayMinMax = (arr = undefined) => {
+        if(arr === undefined) return console.warn('No ingresaste un arreglo de números')
+            if(!(arr instanceof Array)) return console.error('El valor que ingresaste no es un arreglo')
+            if(arr.length === 0) return console.error('El arreglo está vacío')
+            for (let num of arr) {
+                if(typeof num !== 'number') return console.error(`El valor ${num} ingresado NO es un número`)
+            }
+        return console.info(`Arreglo original: ${arr}\nValor mayor: ${Math.max(...arr)}\nValor menor: ${Math.min(...arr)}`)
+
+
+      }
+      arrayMinMax()
+      arrayMinMax(false)
+      arrayMinMax([])
+      arrayMinMax(2, 3, 4, true)
+      arrayMinMax([1, 4, 5, 99, - 60]) */
+
+
     </script>
     
 </body>
