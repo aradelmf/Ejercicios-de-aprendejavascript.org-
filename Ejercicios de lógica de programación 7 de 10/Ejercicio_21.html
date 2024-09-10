@@ -12,7 +12,30 @@
     <h1>Ejercicio 21</h1>
     <h2>Planteamiento</h2>
     <p>Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].</p>
-    <script></script>
+    <script>
+        const elevaDos = (arreglo = undefined) => {
+        if(arreglo === undefined) return console.warn('Debe introducir un valor numérico.')
+        if(!Array.isArray(arreglo)) return console.error(`El valor "${arreglo}" introducido no es un arreglo de datos.`)
+        
+        let arregloCuadrado = []
+        for (i = 0; i < arreglo.length; i++){
+            if(typeof arreglo[i] !== 'number' || isNaN(arreglo[i]) === true) return console.error(`El valor "${arreglo[i]}" en la posición "${i+1}" del arreglo NO es un número.`)
+            
+            arregloCuadrado.push(Math.pow(arreglo[i], 2))
+            
+        }
+            
+           
+        return console.info(`El arreglo de números ${arreglo.join(', ')} elevado al cuadrado es igual a: ${arregloCuadrado.join(', ')}`)
+        
+      }
+      elevaDos()
+      elevaDos(94)
+      elevaDos([2, 4, 3, 5, '6', 7, 8])
+      elevaDos([2, 4, 3, 5, 6, 7, 8])
+      elevaDos([4, 4, 9])
+
+    </script>
     
 </body>
 </html>
