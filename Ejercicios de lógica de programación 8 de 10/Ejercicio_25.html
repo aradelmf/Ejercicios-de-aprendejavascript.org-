@@ -12,7 +12,52 @@
     <h1>Ejercicio 25</h1>
     <h2>Planteamiento</h2>
     <p>Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].</p>
-    <script></script>
+    <script>
+        const eliminarDuplicados = (arr = undefined) =>{
+            if(arr === undefined) return console.warn('Debe ingresar un conjunto de datos numéricos')
+            if(!Array.isArray(arr)) return console.error(`El valor "${arr}" NO es un conjunto de números válido`)
+            if(arr.length === 0) return console.warn('El arreglo de números no puede estar vacío')
+           
+            let newArr = []
+            arr.forEach(num => {
+                if (newArr.indexOf(num) === -1) newArr.push(num)
+            });
+            
+            return console.info('Tu arreglo sin duplicados:\n', newArr)
+        }
+
+        //EJECUCIÓN DEL CÓDIGO
+        eliminarDuplicados()
+        eliminarDuplicados(99)
+        eliminarDuplicados([])
+        eliminarDuplicados(["x", 10, "x", 2, "10", 10, true, true])
+        eliminarDuplicados([3, 4, 'hola', false, true, true, 'hola', 3, 3])
+
+        //MÉTODO DE JON MIRCHA
+        /* const quitarDuplicador = (arr = undefined) => {
+            if(arr === undefined) return console.warn('No ingresaste un arreglo de números')
+            if(!(arr instanceof Array)) return console.error('El valor que ingresaste no es un arreglo')
+            if(arr.length === 0) return console.error('El arreglo está vacío')
+            if(arr.length === 1) return console.warn('El arreglo debe tener al menos dos elementos')
+
+            //return console.info({
+            //    original: arr,
+            //    sinDuplicados: arr.filter((value, index, self) => self.indexOf(value) === index)
+            //}) 
+            return console.info({
+                original: arr,
+                sinDuplicados: [...new Set(arr)]
+                })
+            }
+        quitarDuplicador()
+        quitarDuplicador({})
+        quitarDuplicador([])
+        quitarDuplicador([1])
+        quitarDuplicador(['x', 10, 'x', 2, '10', 10, true, true]) */
+
+
+
+    </script>
     
 </body>
 </html>

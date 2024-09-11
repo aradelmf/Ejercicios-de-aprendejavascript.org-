@@ -11,7 +11,59 @@
     <h1>Ejercicio 26</h1>
     <h2>Planteamiento</h2>
     <p>Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5</p>
-    <script></script>
+    <script>
+        const promedio = (arr = undefined) => {
+            if(arr === undefined) return console.warn('Debe introducir un conjunto de datos')
+            if(!Array.isArray(arr)) return console.error('El conjunto de datos no es válido')
+            if(arr.length === 0) return console.warn('El conjunto de datos está vacío')
+            let evalArr = Array.from(arr)
+            for(i=0;i<arr.length;i++) {
+                arr[i] = Number(arr[i])
+                if(isNaN(arr[i])) return console.error(`El valor "${evalArr[i]}" en el conjunto [${evalArr}] no es un número válido`)
+            }
+            
+            let sumaTodos = arr.reduce((a,b) => {return a + b})
+                media = sumaTodos / arr.length
+            console.info(`El promedio de ${arr} es: ${media}`)
+        }
+
+        //EJECUCIÓN DEL CÓDIGO
+        promedio()
+        promedio('hola')
+        promedio([])
+        promedio([9, 10, 11, 12, 13, 'hola'])
+        promedio([9, 10, '11', 12, 13])
+        promedio([9,8,7,6,5,4,3,2,1,0])
+        
+        //MÉTODO DE JON MIRCHA
+        /* const promedio = (arr = undefined) => {
+            if(arr === undefined) return console.warn('No ingresaste un arreglo de números')
+            if(!(arr instanceof Array)) return console.error('El valor que ingresaste no es un arreglo')
+            if(arr.length === 0) return console.error('El arreglo está vacío')
+            for (let num of arr) {
+                if(typeof num !== 'number') return console.error(`El valor ${num} ingresado NO es un número`)
+            }
+
+            return console.info(
+                arr.reduce((total, num, index, arr) =>{
+                    total += num
+                    if(index === arr.length - 1) {
+                        return `el promedio de ${arr.join(' + ')} es igual a ${total/arr.length}`
+                    } else {
+                        return total
+                    }
+                })
+            )
+            
+        }
+
+        promedio()
+        promedio(99)
+        promedio([])
+        promedio([2, true])
+        promedio([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) */
+
+    </script>
     
 </body>
 </html>
