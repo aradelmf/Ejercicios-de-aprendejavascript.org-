@@ -14,7 +14,41 @@
     <h1>Ejercicio 24</h1>
     <h2>Planteamiento</h2>
     <p>Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.</p>
-    <script></script>
+    <script>
+        const ordenarNumeros = (arr = undefined) => {
+            if(arr === undefined) return console.warn('Debe ingresar un conjunto de datos numéricos')
+            if(!Array.isArray(arr)) return console.error(`El valor "${arr}" NO es un conjunto de números válido`)
+            if(arr.length === 0) return console.warn('El arreglo de números no puede estar vacío')
+            for(i=0;i<arr.length;i++){
+                if(typeof arr[i] !== 'number') return console.error(`El valor "${arr[i]}" NO es un valor numérico válido`)
+            }
+            let ascendente = arr
+            ascendente.sort((a,b) => {
+                return a-b
+            })
+            let descendente = Array.from(ascendente)
+            descendente.reverse()
+
+            newArr = {
+                ascendente,
+                descendente
+            }
+
+            console.info(`Los números en orden ascendente son: ${newArr.ascendente}\nLos números en orden descendente son: ${newArr.descendente}`)
+            console.log('Tus datos:', newArr)
+        }
+
+        //EJECUCIÓN DEL CÓDIGO
+        ordenarNumeros()
+        ordenarNumeros({})
+        ordenarNumeros([])
+        ordenarNumeros([2, 'hola', 5, 5, 1])
+
+        ordenarNumeros([7, 5, 7, 8, 6])
+        ordenarNumeros([-12, 11, 22, 34, -23, 42, -434, 43, -34])
+
+        
+    </script>
     
 </body>
 </html>
