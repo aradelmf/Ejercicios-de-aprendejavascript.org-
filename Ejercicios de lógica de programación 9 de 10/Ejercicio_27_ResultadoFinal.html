@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--  Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes 
+datos: id de la película en IMDB, titulo, director, año de estreno, país o 
+países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y 
+    los 7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, 
+  Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History,
+  Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short,
+  Sport, Talk-Show, Thriller, War, Western. -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 27 Resultado Final</title>
+    <style>
+      h1, h2 {
+        font-size: 3rem;
+        background-color: aquamarine;
+      }
+      p, ul li {
+        font-size: 1.3rem;
+      }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 27 Resultado Final</h1>
+    <h2>Planteamiento</h2>
+     <p>
+       Programa una clase llamada Pelicula.</br>
+          La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.</p>
+            <ul>
+              <li> Todos los datos del objeto son obligatorios.</li>
+              <li>Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.</li>
+              <li>Valida que el título no rebase los 100 caracteres.</li>
+              <li>Valida que el director no rebase los 50 caracteres.</li>
+              <li>Valida que el año de estreno sea un número entero de 4 dígitos.</li>
+              <li>Valida que el país o paises sea introducidos en forma de arreglo.</li>
+              <li>Valida que los géneros sean introducidos en forma de arreglo.</li>
+              <li>Valida que los géneros introducidos esten dentro de los géneros aceptados*.</li>
+              <li>Crea un método estático que devuelva los géneros aceptados*.</li>
+              <li>Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.</li>
+              <li>Crea un método que devuelva toda la ficha técnica de la película.</li>
+              <li>Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.</li>
+            </ul>
+       
+           <p>* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.</p>
+    <script>
+      class Pelicula {
+        
+        static #genres = ['Action', 'Adult', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Film Noir', 'Game-Show', 'History', 'Horror', 'Musical', 'Music', 'Mystery', 'News', 'Reality-TV', 'Romance', 'Sci-Fi', 'Short', 'Sport', 'Talk-Show', 'Thriller', 'War', 'Western']
+        static get acceptedGenres () {
+          return Pelicula.#genres.map(genero => genero.toLowerCase())
+        }
+        constructor({ID = undefined, titulo = undefined, director = undefined, añoEstreno = undefined, pais = undefined, generos = undefined, calificacion = undefined}) {
+          this.ID = ID
+          this.titulo = titulo
+          this.director = director
+          this.añoEstreno = añoEstreno
+          this.pais = pais
+          this.generos = generos
+        }
+        
+        static generosAceptados() {
+        console.info(`Los géneros aceptados son: ${Pelicula.acceptedGenres.join(', ')}`)
+        }
+        fichaTecnica() {
+          console.log(`Nombre: ${this.titulo}.\nID en IMBD: ${this.ID}\nDirector: ${this.director}\nAño de estreno: ${this.añoEstreno}\nPaíses de origen: ${this.pais.join('. ')}\nGéneros: ${this.generos.join(', ')}\nCalificaciín en IMBD: ${this.calificacion}`)
+        }
+
+
+      }
+      
+
+      //let salemsLot = new Pelicula({ID: 'tt10245072', titulo: 'Salem\' Lot', director: 'Gary Dauberman', añoEstreno: 2024, pais: ['USA'], generos: ['horror, thriller'], calificacion: 6.9})
+      let salemsLot = {varName: 'salemsLot', ID: 'tt10245072', titulo: 'Salem\'s Lot', director: 'Gary Dauberman', añoEstreno: 2024, pais: ['USA'], generos: ['thriller', 'horror'], calificacion: 6.9}
+          beetlejuice = {varName: 'beetlejuice', ID: 'tt2049403', titulo: 'Beetlejuice Beetlejuice', director: 'Tim Burton', añoEstreno: 2024, pais: ['USA'], generos: ['comedy', 'fantasy', 'horror'], calificacion: 7.1}
+          furiosa = {varName: 'furiosa', ID: 'tt12037194', titulo: 'Furiosa: A Mad Max Saga', director: 'George Miller', añoEstreno: 2024, pais: ['Australia, USA'], generos: ['Sci-Fi', 'action', 'adventure', 'thriller'], calificacion: 7.6}
+
+      let arregloPeliculas = [salemsLot, beetlejuice, furiosa]
+      
+
+      const createPeliculaInstances = (arr = undefined) => {
+        if(arr === undefined) return console.warn('No se ha introducido un conjunto de datos')
+        if(!Array.isArray(arr)) return console.error('El conjunto de datos no es válido')
+        for(i=0;i<arr.length;i++) {
+            if(Array.isArray(arr[i])) return console.error(`El tipo de dato ${arr[i]} no es correcto`)
+            if(typeof arr[i] !== 'object') return console.error(`El dato introducido ${arr[i]} es inválido`)
+        }
+
+        arr.forEach(ele => {
+          
+          
+          if(ele.ID === undefined) return console.warn(`El ID de IMBD en ${ele.varName} no está definido`)
+          if(ele.titulo === undefined) return console.warn(`El título de la película ${ele.varName} no está definido`)
+          if(ele.director === undefined) return console.warn(`Debe especificar un director de la película ${ele.varName}`)
+          if(ele.añoEstreno === undefined) return console.warn(`No ha especificado el año de estreno de la película ${ele.varName}`)
+          if(ele.pais === undefined) return console.warn(`Indique el país o los países de de origen de la película ${ele.varName}`)
+          if(ele.generos === undefined) return console.warn(`Debe definir al menos un género para la película ${ele.varName}`)
+          if(ele.calificacion === undefined) return console.warn(`No ha indicado qué calificación tiene la película ${ele.varName} en IMBD`)
+          if(!(/^tt[\d]{7,8}$/ig.test(ele.ID))) return console.error(`El código ID IMBD de ${ele.varName} introducido no cumple con las condiciones requeridas`)
+          if(!(/^([^(\t\n\r\v\f\b\0)]){1,100}$/igu.test(ele.titulo))) return console.error(`El nombre de la película ${ele.varName} es inválido. No debe tener más de 100 caracteres`)
+          if(!(/^([^(\d\t\n\r\v\f\b\0)]){1,50}$/igu.test(ele.director))) return console.error(`El nombre de director de la película ${ele.varName} no cumple con las condiciones permitidas`)
+          if(!(/^\d\d\d\d$/ig.test(ele.añoEstreno)) || typeof ele.añoEstreno !== 'number' || ele.añoEstreno < 1890) return console.error(`El año especificado para la película ${ele.varName} no cumple con las condiciones`)
+          if(!(Array.isArray(ele.pais))) return console.error(`Los países de la película ${ele.varName} han sido introducidos de forma incorrecta`)
+          if(!(Array.isArray(ele.generos))) return console.error(`Los géneros de la película ${ele.varName} han sido introducidos de forma incorrecta`)
+          for (const gen of ele.generos){
+            if(!(Pelicula.acceptedGenres.includes(gen.toLowerCase()))) return console.error(`El género cinematográfico "${gen}" de la película ${ele.varName} NO es válido. Verifique la lista de géneros permitidos`)
+          }
+          if(typeof ele.calificacion !== 'number') return console.error(`El valor introducido en la califiación de ${ele.varName} NO es un número válido`)
+          if(ele.calificacion > 10 || ele.calificacion < 1) return console.error(`la calificación de ${ele.varName} no puede ser inferior a 1 ni mayor que 10`)
+          if(!(/^(\d|\d\d|\d\.\d)$/.test(ele.calificacion))) return console.error(`El dato de calificación de ${ele.varName} es incorrecto. Este debe ser un número entre 1 y 10 con sólo un decimal`)
+        
+
+          let movie = ele.varName + 'Pelicula'
+              this[movie] = new Pelicula(ele)
+          this[movie].fichaTecnica()
+        })
+      }
+      
+      createPeliculaInstances(arregloPeliculas)
+
+   
+    </script>
+    
+</body>
+</html>
