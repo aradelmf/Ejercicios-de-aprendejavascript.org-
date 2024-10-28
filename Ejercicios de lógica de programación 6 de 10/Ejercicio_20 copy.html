@@ -21,7 +21,7 @@
             emai = email.toLowerCase()
             //let exRe = /^([a-zA-Z\d][a-zA-Z\d\.,-_])+(@)([a-zA-Z\d]+)\.([a-zA-Z]+)$/i
             //let exRe = /^((([a-zA-Z\d])[a-zA-Z\d\.,-_]){6,24})@([a-zA-Z\d]{3,16})\.([a-zA-Z]{1,12})$/iu
-            let exRe = /^[a-zA-Z]{1,1}[a-zA-Z\d\.-_]{6,23}@[a-zA-Z\d]{2,16}\.[a-z]+$/ig
+            let exRe = /^[a-zA-Z]{1,1}[a-zA-Z\d.\-_]{6,23}@[a-zA-Z\d]{2,16}\.[a-z]+$/ig
                 test = exRe.test(email)
             if(test){
             return console.info(`El email ${email} es válido`)
